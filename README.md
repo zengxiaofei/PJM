@@ -8,9 +8,11 @@ PJM has beed tested on Torque. But it remains unknown Whether it also work well 
 
 ## Dependencies
 
-Python 2.7
+
+* Python 2.7
 
 ## Usage
+
 
 Print help message:
 ```
@@ -34,3 +36,23 @@ To run a pipeline, just:
 ```
 $ pjm.py a_pipeline.job
 ```
+
+## Job definition
+
+Definition of a job:
+
+```shell
+job_example(depend=another_job;nodes=1;ppn=8;queue=cu;dir=example_dir){
+    echo 'This is an example!'
+}END
+```
+
+* `job_example` defines the job name. It should be unique in a `.job` file.
+
+* `depend=jobA` means that `job_example` should be run after `another_job`. Default is none.
+
+* `nodes=1`, `ppn=8`, `queue=cu` are settings for the job resources and queue.
+
+* `dir=example_dir` is the working directory of the job. PJM will creat an folder when this job is running.
+
+* `echo 'This is an example!'` is the shell command of the job.
