@@ -1,14 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Author: zengxiaofei
-# Email: zengxiaofei@frasergen.com
-# Created Time: 2017-06-03 17:34
-
 """A Simple Job Manager for PBS
 
 Author: Xiaofei Zeng
-Email: zengxiaofei@frasergen.com; xiaofei_zeng@whu.edu.cn
+Email: xiaofei_zeng@whu.edu.cn
 Version: V0.9
 """
 
@@ -338,7 +334,7 @@ if __name__ == '__main__':
             formatter_class = argparse.RawDescriptionHelpFormatter,
             description = """** A Simple Job Manager for PBS (PJM) Version 0.9 **
  . Author: Xiaofei Zeng
- . Email: zengxiaofei@frasergen.com; xiaofei_zeng@whu.edu.cn""")
+ . Email: xiaofei_zeng@whu.edu.cn""")
     parser.add_argument('job_file', help='input job file')
     parser.add_argument('--sleep', default=60, type=int, 
                         help='monitor interval time (seconds) [default: %(default)i]')
