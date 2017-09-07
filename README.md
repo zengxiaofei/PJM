@@ -44,7 +44,7 @@ A pipeline always contains a series of jobs. Each job has its own demand of reso
 Here is an example of a job definition:
 
 ```shell
-job_example(depend=another_job;nodes=1;ppn=8;queue=cu;dir=example_dir){
+job_example(depend=another_job;nodes=1;ppn=8;queue=cu;stringency=high;dir=example_dir){
     echo 'This is an example!'
 }END
 ```
@@ -55,8 +55,22 @@ job_example(depend=another_job;nodes=1;ppn=8;queue=cu;dir=example_dir){
 
 * `nodes=1`, `ppn=8`, `queue=cu` are settings for the job resources and queue.
 
+* `stringency=high` will add a shell command `set -o errexit` at the head of generated `.pbs` file of the job. If an error occurs, the job will be aborted and exit. PJM will wait for other jobs to finish if they are independent with the failed job. 
+
 * `dir=example_dir` is the working directory of the job. PJM will creat a folder when this job is ready to run. Default is JOBNAME_dir.
 
 * `echo 'This is an example!'` is the shell command of the job.
 
-The default settings of `nodes`, `ppn`, `queue` and avaliable `queue list` can be edited in configuration file `pjm.cfg`
+## Configuration
+
+The default settings of `nodes`, `ppn`, `queue` and avaliable `queue list` can be edited in configuration file `pjm.cfg`:
+
+```cfg
+[Default]
+nodes=1
+ppn=1
+queue=cu
+stringency=high
+[PBS]
+QueueList=cu,fat,batch,assemble
+```
