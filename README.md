@@ -2,7 +2,7 @@
 
 ## Summary
 
-PJM is a simple job manager for PBS (Portable Batch System) written by Python. The main functions of PJM is inspirated by [SJM](https://github.com/StanfordBioinformatics/SJM "SJM"). Similarlly, PJM can be used as a framework for bioinformatics analysis pipelines by automatically submitting jobs, monitoring job status and controlling the workflow according to dependencies of each job. However, jobs in PJM are defined like a "function", with all the settings including computing resources and job dependencies, which is distinct from SJM. 
+PJM is a simple job manager for PBS (Portable Batch System) written by Python. The main function of PJM is inspirated by [SJM](https://github.com/StanfordBioinformatics/SJM "SJM"). Similarlly, PJM can be used as a framework for bioinformatics analysis pipelines by automatically submitting jobs, monitoring job status and controlling the workflow according to dependencies of each job. However, jobs in PJM are defined like a "function", with all the settings including computing resources and job dependencies, which is distinct from SJM. 
 
 PJM has beed tested on Torque. But it remains unknown whether it also work well on OpenPBS or PBS Professional. PJM may be ported to or compatible with other schedulers in the future, such as SGE (Sun Grid Engine).
 
@@ -49,7 +49,7 @@ job_example(depend=another_job;nodes=1;ppn=8;queue=cu;stringency=high;dir=exampl
 }END
 ```
 
-* `job_example` defines the JOBNAME. It should be unique in a `.job` file.
+* `job_example` defines the JOBNAME, which is the unique identifier of the job. Avoid duplicated JOBNAME.
 
 * `depend=jobA` means that `job_example` should be run after `another_job` finished. Default is no dependency.
 
