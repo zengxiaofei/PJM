@@ -10,6 +10,14 @@ PJM has beed tested on Torque. But it remains unknown whether PJM also work well
 
 * Python 2.7
 
+## Installation
+
+```
+cd ~ # or anywhere you like
+git clone https://github.com/zengxiaofei/PJM.git
+export PATH=~/PJM:$PATH # you can add it to .bashrc or .bash_profile
+```
+
 ## Usage
 
 
