@@ -238,7 +238,7 @@ def log(job_list, cfg_header):
                             if match_real:
                                 realtime = match_real.group(1)
                                 job.realtime = calculate_time(realtime)
-                avg_cpu = 'NA' if job.realtime == 0 else float(job.cputime)/job.realtime
+                avg_cpu = 0 if job.realtime == 0 else float(job.cputime)/job.realtime
                 frsc.write('{0}\t{1}\t{2}\t{3:.3f}\n'.format(
                         job.name, job.cputime, job.realtime, avg_cpu))
         
